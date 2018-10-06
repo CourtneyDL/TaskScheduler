@@ -11,7 +11,7 @@ describe('TaskScheduler instantiation', () => {
         'd': [] 
     };
 
-    it('process tasks and dependencies from an array', () => {
+    it('processes tasks and dependencies from an array', () => {
         const tasks_in = ['a','b','c','d'];
         const dependencies_in = ['a => b', 'b => c', 'c => a'];
 
@@ -21,7 +21,7 @@ describe('TaskScheduler instantiation', () => {
         expect(task_scheduler.dependencies).to.deep.equal(dependencies_out, 'Dependencies processed incorrectly');
     });
 
-    it('process tasks and dependencies from a string', () => {
+    it('processes tasks and dependencies from a string', () => {
         const tasks_in = `a,b,c,d`;
         const dependencies_in = `a => b, b => c, c => a`;
 
@@ -31,7 +31,7 @@ describe('TaskScheduler instantiation', () => {
         expect(task_scheduler.dependencies).to.deep.equal(dependencies_out, 'Dependencies processed incorrectly');
     });
 
-    it('process tasks and dependencies from a string representing an array', () => {
+    it('processes tasks and dependencies from a string representing an array', () => {
         const tasks_in = `[a,b,c,d]`;
         const dependencies_in = `[a => b, b => c, c => a]`;
 
@@ -39,5 +39,16 @@ describe('TaskScheduler instantiation', () => {
 
         expect(task_scheduler.tasks).to.deep.equal(tasks_out, 'Tasks processed incorrectly');
         expect(task_scheduler.dependencies).to.deep.equal(dependencies_out, 'Dependencies processed incorrectly');
+    });
+});
+
+describe('TaskScheduler.getSchedule', () => {
+    it('should return a empty set of tasks', () => {
+        const tasks_in = [];
+        const dependencies_in = [];
+        const result = [];
+
+        const task_scheduler = new TaskScheduler();
+        expect(task_scheduler.getSchedule()).to.deep.equal([]);
     });
 });
