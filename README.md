@@ -1,7 +1,7 @@
 # TaskScheduler
 A Node.js command line utility for scheduling tasks by determining their execution order in relation to a set of dependencies.
 
-The tool can be run as follows:
+The tool can be run from its root directory as follows:
 ```
 node . <tasks> <dependencies>
 node . "a,b,c" "a => b, b => c"
@@ -17,7 +17,7 @@ npm install
 ```
 
 ## Test Script
-This repository includes a unit test suite implemented in Mocha and Chai. It contains tests for the acceptance criteria in this readme. There are also tests to verify that the TaskScheduler class constructor parses task and dependency parameter correctly.
+This repository includes a unit testing suite implemented in Mocha and Chai. It contains tests for the acceptance criteria listed in this readme. There are also tests to verify that the TaskScheduler class constructor parses task and dependency parameters correctly.
 
 It can be executed by calling:
 ```
@@ -29,7 +29,7 @@ npm run test:watch
 ```
 
 ## Acceptance Criteria
-The utility was designed to meet the criteria below:
+The utility was designed to meet the following set of criteria. Commands are included to check the output independent of the test script outlined above.
 
 ### No Tasks
 tasks : []
