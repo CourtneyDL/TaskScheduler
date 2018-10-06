@@ -40,6 +40,21 @@ describe('TaskScheduler instantiation', () => {
         expect(task_scheduler.tasks).to.deep.equal(tasks_out, 'Tasks processed incorrectly');
         expect(task_scheduler.dependencies).to.deep.equal(dependencies_out, 'Dependencies processed incorrectly');
     });
+
+    it('incorrectly formatted dependencies will be ignored', () => {
+        const tasks_in = `[a,b,c,d]`;
+        const dependencies_in = `[a => b, b => c, c:a]`;
+
+        const task_scheduler = new TaskScheduler(tasks_in, dependencies_in);
+
+        expect(task_scheduler.tasks).to.deep.equal(tasks_out, 'Tasks processed incorrectly');
+        expect(task_scheduler.dependencies).to.deep.equal({
+            'a': ['b'],
+            'b': ['c'],
+            'c': [],
+            'd': [] 
+        }, 'Dependencies processed incorrectly');
+    });
 });
 
 describe('TaskScheduler.getSchedule', () => {

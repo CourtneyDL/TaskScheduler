@@ -1,8 +1,9 @@
 const TaskScheduler = require('./lib/TaskScheduler');
 
-const tasks_array = ['a','b','c','d'];
-const dependencies_array = ['a => b', 'b => c', 'c => a'];
-const task_scheduler = new TaskScheduler(tasks_array, dependencies_array);
+const tasks = process.argv[2];
+const dependencies = process.argv[3];
 
-console.dir(task_scheduler.tasks);
-console.dir(task_scheduler.dependencies);
+console.log('tasks: ', tasks || '[]');
+console.log('dependencies: ', dependencies || '[]');
+const task_scheduler = new TaskScheduler(tasks, dependencies);
+console.log('result: ', task_scheduler.getSchedule());
