@@ -87,4 +87,13 @@ describe('TaskScheduler.getSchedule', () => {
         const task_scheduler = new TaskScheduler(tasks_in, dependencies_in);
         expect(task_scheduler.getSchedule()).to.deep.equal(result);
     });
+    
+    it('should return an error if a cyclic dependency is found', () => {
+        const tasks_in = ['a','b','c','d'];
+        const dependencies_in = ['a => b','b => c','c => a'];
+        const result = 'Error - this is a cyclic dependency';
+
+        const task_scheduler = new TaskScheduler(tasks_in, dependencies_in);
+        expect(task_scheduler.getSchedule()).to.deep.equal(result);
+    });
 });
