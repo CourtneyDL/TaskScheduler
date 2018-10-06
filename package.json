@@ -1,0 +1,24 @@
+{
+  "name": "task-scheduler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.spec.js",
+    "test:watch": "mocha --watch --watch-extensions js test/**/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CourtneyDL/TaskScheduler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CourtneyDL/TaskScheduler/issues"
+  },
+  "homepage": "https://github.com/CourtneyDL/TaskScheduler#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
